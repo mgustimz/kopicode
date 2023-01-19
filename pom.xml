@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.another</groupId>
+    <artifactId>kopicode</artifactId>
+    <version>1.0</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>11</java.version>
+        <e-comm.spring.version>2.4.5</e-comm.spring.version>
+        <e-comm.surefire.version>2.22.0</e-comm.surefire.version>
+        <e-comm.junit.version>5.7.1</e-comm.junit.version>
+        <e-comm.hibernate-validator.version>6.1.7.Final</e-comm.hibernate-validator.version>
+        <e-comm.jakarta-el.version>3.0.3</e-comm.jakarta-el.version>
+        <e-comm.easy-random.version>4.3.0</e-comm.easy-random.version>
+    </properties>
+
+    <modules>
+        <!-- PRODUCT -->
+        <module>domain/product-core</module>
+        <module>persistence/product-persistence</module>
+        <module>apps/product-service</module>
+        <module>domain/product-client</module>
+
+        <!-- FORM -->
+        <module>domain/form-core</module>
+        <module>persistence/form-persistence</module>
+        <module>apps/form-service</module>
+        <module>domain/form-client</module>
+
+        <!-- USER -->
+        <module>domain/user-core</module>
+
+        <module>common/validator</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${e-comm.spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
